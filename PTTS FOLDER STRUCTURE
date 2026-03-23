@@ -1,0 +1,39 @@
+PTTS/
+│
+├── backend/
+│   ├── main.py
+│   ├── database.py
+│   ├── auth.py
+│
+├── frontend/
+│   ├── gui.py
+│   ├── login_screen.py
+│   ├── tutor_dashboard.py
+│   ├── admin_dashboard.py
+│
+├── docs/
+│   ├── UML_Diagrams.pdf
+│   ├── ERD.png
+│   ├── Wireframes.png
+│   ├── Risk_Register.pdf
+│   ├── Gantt_Chart.pdf
+│   ├── Requirements.pdf
+│   ├── Meeting_Minutes.pdf
+│
+├── tests/
+│   ├── test_login.py
+│   ├── test_database.py
+│
+└── README.md
+# PTTS Backend - Main Application Entry Point
+# Placeholder file for coursework submission.
+# Backend logic will be added in future sprints.
+# PTTS Database Module
+# Placeholder for SQLite connection and CRUD operations.
+# PTTS Authentication Module
+# Placeholder for login and role-based access control.
+# PTTS GUI Main Window
+# Placeholder for Tkinter GUI integration.
+# PTTS Login Screen
+# Placeholder for login interface.
+
