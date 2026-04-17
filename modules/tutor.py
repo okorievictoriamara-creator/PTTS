@@ -1,5 +1,5 @@
 import tkinter as tk
-from ui_components import go_home, load_logo, rounded_card
+from modules.ui_components import go_home, load_logo, rounded_card
 
 def launch_tutor():
     window = tk.Tk()
