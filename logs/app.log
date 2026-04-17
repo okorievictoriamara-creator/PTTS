@@ -1,0 +1,13 @@
+2026-04-17 10:16:02,889 - INFO - Connected to the database.
+2026-04-17 10:16:02,892 - INFO - Database initialized successfully.
+2026-04-17 21:04:29,236 - INFO - Connected to the database.
+2026-04-17 21:04:29,241 - INFO - Database initialized successfully.
+2026-04-17 21:05:15,527 - INFO - Connected to the database.
+2026-04-17 21:05:15,548 - INFO - Added meeting: 2021-11-19, 19:12, Social science, Jeng Karl
+2026-04-17 21:05:19,295 - INFO - Connected to the database.
+2026-04-17 21:05:19,296 - INFO - Retrieved all meetings.
+2026-04-17 21:05:33,662 - INFO - Connected to the database.
+2026-04-17 21:05:33,679 - INFO - Found 1 meetings matching 'kar'.
+2026-04-17 21:05:37,648 - INFO - Cleared the result text area.
+2026-04-17 23:29:54,374 - INFO - Connected to the database.
+2026-04-17 23:29:54,375 - INFO - Database initialized successfully.
