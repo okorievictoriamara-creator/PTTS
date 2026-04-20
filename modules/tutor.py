@@ -1,36 +1,72 @@
 import tkinter as tk
-from modules.ui_components import go_home, load_logo, rounded_card
+from tkinter import messagebox
+from modules.auth import authenticate
+from modules.ui_components import go_home, load_logo
+from modules.tutor_dashboard import launch_tutor_dashboard
+
 
 def launch_tutor():
-    window = tk.Tk()
+    window = tk.Toplevel()
+    window.iconbitmap("assets/blank.ico")
     window.title("PTTS - Tutor Sign In")
     window.geometry("900x600")
     window.configure(bg="#f4f4f4")
 
-    tk.Button(window, text="← Back to Home", font=("Helvetica", 11, "bold"),
-              bg="#f4f4f4", fg="#007acc", bd=0, cursor="hand2",
-              command=lambda: go_home(window)).pack(anchor="w", padx=20, pady=10)
+    # Back to Home
+    tk.Button(
+        window, text="← Back to Home", font=("Helvetica", 11, "bold"),
+        bg="#f4f4f4", fg="#007acc", bd=0, cursor="hand2",
+        command=lambda: go_home(window)
+    ).pack(anchor="w", padx=20, pady=10)
 
+    # Logo
     logo = load_logo()
-    tk.Label(window, image=logo, bg="#f4f4f4").pack(pady=10)
-    window.logo = logo
+    if logo:
+        tk.Label(window, image=logo, bg="#f4f4f4").pack(pady=10)
+        window.logo = logo
 
-    tk.Label(window, text="Tutor Sign In", font=("Helvetica", 28, "bold"),
-             bg="#f4f4f4").pack(pady=10)
+    # Title
+    tk.Label(
+        window, text="Tutor Sign In",
+        font=("Helvetica", 28, "bold"), bg="#f4f4f4"
+    ).pack(pady=10)
 
-    card = rounded_card(window)
+    # Username
+    tk.Label(window, text="Username:", font=("Helvetica", 14), bg="#f4f4f4").pack()
+    username_entry = tk.Entry(window, font=("Helvetica", 14), width=30)
+    username_entry.pack(pady=5)
 
-    tk.Label(card, text="Username", font=("Helvetica", 12), bg="white").pack(anchor="w")
-    tk.Entry(card, width=30, font=("Helvetica", 12)).pack(pady=5)
+    # Password
+    tk.Label(window, text="Password:", font=("Helvetica", 14), bg="#f4f4f4").pack()
+    password_entry = tk.Entry(window, font=("Helvetica", 14), width=30, show="*")
+    password_entry.pack(pady=5)
 
-    tk.Label(card, text="Password", font=("Helvetica", 12), bg="white").pack(anchor="w")
-    tk.Entry(card, width=30, font=("Helvetica", 12), show="*").pack(pady=5)
+    def attempt_login():
+        username = username_entry.get()
+        password = password_entry.get()
 
-    tk.Button(card, text="Sign In", font=("Helvetica", 12, "bold"),
-              bg="#ff9933", fg="white", width=20, cursor="hand2",
-              relief="flat").pack(pady=20)
+        user = authenticate(username, password, role="tutor")
+        if user:
+            tutor_id = user["tutor_id"]
+            tutor_name = user["name"]
+            subject = user["subject"]
+            window.destroy()
+            launch_tutor_dashboard(tutor_id, tutor_name, subject)
 
-    tk.Label(window, text="Contact IT support for sign-in issues",
-             font=("Helvetica", 10, "italic"), bg="#f4f4f4", fg="#777").pack(pady=20)
+        else:
+            messagebox.showerror("Error", "Invalid tutor credentials.")
+
+    tk.Button(
+        window, text="Sign In",
+        font=("Helvetica", 14, "bold"),
+        bg="#4da6ff", fg="white",
+        width=20, cursor="hand2",
+        command=attempt_login
+    ).pack(pady=20)
+
+    tk.Label(
+        window, text="Contact IT support for sign-in issues.",
+        font=("Helvetica", 10), bg="#f4f4f4", fg="gray"
+    ).pack(pady=10)
 
     window.mainloop()

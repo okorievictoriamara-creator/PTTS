@@ -1,5 +1,8 @@
+import tkinter as tk
+import os
+
+
 # from modules.gui import MISGUI
-# import tkinter as tk
 
 # if __name__ == "__main__":
 #     root = tk.Tk()
@@ -9,4 +12,8 @@
 from homepage import launch_homepage
 
 if __name__ == "__main__":
+    root = tk.Tk()
+    root.iconbitmap("assets/blank.ico")
+    root.withdraw()  # Hide the root window
     launch_homepage()
+    root

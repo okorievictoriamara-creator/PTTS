@@ -25,7 +25,8 @@ def load_icon(filename):
 
 # --- Main window setup ---
 def launch_homepage():
-    root = tk.Tk()
+    root = tk.Toplevel()
+    root.iconbitmap("assets/blank.ico")
     root.title("PTTS App - Home")
     root.geometry("1200x600")
     root.configure(bg="#f4f4f4")

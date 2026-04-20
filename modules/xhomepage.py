@@ -25,7 +25,8 @@ def open_admin():
     launch_admin_page()
 
 # --- Main window setup ---
-root = tk.Tk()
+root = tk.Toplevel()
+root.iconbitmap("assets/blank.ico")
 root.title("PTTS App - Home")
 root.geometry("1200x600")
 root.configure(bg="#f4f4f4")
